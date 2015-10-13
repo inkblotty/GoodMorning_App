@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>GoodMorning App</title>
+
+	<script src="node_modules/angular/angular.js"></script>
+</head>
+<body ng-app="dashApp">
+	
+	<div class="container" ng-controller="masterCtrl">
+		<h1>Hello, {{ name }}</h1>
+	</div>
+
+	<div class="container" ng-controller="weathCtrl">
+		<h3>{{ weathData.city }}
+		<div class="weather">
+			<img ng-src="{{ data.icon }}">
+			<div class="cur-weath">
+				<p>{{ weathData.weather }}</p>
+				<p>{{ weathData.temp_f }}&deg;</p>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Module -->
+	<script src="js/app.js"></script>
+
+	<!-- Controllers -->
+	<script src="js/controllers/masterCtrl.js"></script>
+	<script src="js/controllers/weathCtrl.js"></script>
+
+	<!-- Services -->
+	<script src="js/weathService.js"></script>
+
+	<!-- Directives -->
+
+</body>
+</html>
