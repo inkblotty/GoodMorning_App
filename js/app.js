@@ -1,3 +1,3 @@
 // initial app
 
-var app = angular.module('dashApp', []);
+var app = angular.module('dashApp', ['angularMoment']);

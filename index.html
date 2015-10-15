@@ -5,18 +5,26 @@
 	<title>GoodMorning App</title>
 
 	<script src="node_modules/angular/angular.js"></script>
+	<script src="js/moment.min.js"></script>
+	<script src="node_modules/angular-moment/angular-moment.js"></script>
 
 </head>
 <body ng-app="dashApp">
 	
 	<div class="container" ng-controller="masterCtrl as master">
-		<h1>Hello, {{ master.name }}</h1>
-	</div>
+		<h1>Hello, {{ master.info.name }}</h1>
+		<div class="date">{{ master.info.date | date:'MMMM dd, yyyy'}}</div>
+		<div class="time">{{ master.info.date | date:'H:mma'}}</div>
 
-	<div class="container" ng-controller="weathCtrl as weath">
+		<div class="toDoUI">
+			<input type="text" ng-model="master.toDos.task"/>
+		</div>
+
+
+	  <div class="container" ng-controller="weathCtrl as weath">
 		<h3>{{ weath.location.city }}</h3>
 		<div class="weather">
-			<img ng-src="http://icons.wxug.com/i/c/j/{{ weath.weathData.weather | lowercase}}.gif">
+			<img ng-src="http://icons.wxug.com/i/c/j/{{ weath.weathData.weather | lowercase | noSpace}}.gif">
 			<div class="cur-weath">
 				<p>{{weath.weathData.weather}}</p>
 				<p>{{weath.weathData.temp_f}}&deg;</p>
@@ -26,7 +34,13 @@
 		<div class="credit-logo">
 			<img ng-src='{{ weath.weathData.image.url }}'>
 		</div>
-	</div>
+	  </div>
+
+	  <div class="toDoList" ng-repeat="task in master.toDos">
+		<div>{{ master.toDos.task }}</div>
+	  </div>
+
+    </div>
 
 
 	<!-- Module -->
@@ -40,6 +54,9 @@
 	<script src="js/controllers/weathCtrl.js"></script>
 
 	<!-- Directives -->
+
+	<!-- Custom Filters -->
+	<script src="js/noSpaceFilter.js"></script>
 
 </body>
 </html>
