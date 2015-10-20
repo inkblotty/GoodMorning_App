@@ -20,9 +20,9 @@ gulp.task('lint', function() {
 
 // compile sass
 gulp.task('sass', function() {
-    return gulp.src('scss/*.scss')
-        .pipe(sass())
-        .pipe(gulp.dest('css'));
+    return gulp.src('styles/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('styles/css/'));
 });
 
 // concatenate & minify js
@@ -38,8 +38,11 @@ gulp.task('scripts', function() {
 // watch files for changes
 gulp.task('watch', function() {
 	gulp.watch('js/*.js', ['scripts']);
-	gulp.watch('scss/*.scss', ['sass']);
+	gulp.watch('styles/**/*.scss', ['sass']);
 });
 
 // default
-gulp.task('default', ['sass', 'scripts', 'watch']);
+gulp.task('default', function() {
+	gulp.watch('js/*.js', ['scripts']);
+	gulp.watch('styles/**/*.scss', ['sass']);
+});

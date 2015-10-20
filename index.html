@@ -4,26 +4,37 @@
 	<meta charset="UTF-8">
 	<title>GoodMorning App</title>
 
+	<!-- Styles -->
+	<link rel="stylesheet" href="styles/css/sass/main.css">
+	<link rel="stylesheet" href="css/flexboxgrid.min.css" type="text/css">
+
+	<!-- Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+	<!-- Libraries -->
 	<script src="node_modules/angular/angular.js"></script>
 	<script src="js/moment.min.js"></script>
 	<script src="node_modules/angular-moment/angular-moment.js"></script>
+	
 
 </head>
 <body ng-app="dashApp">
 	
-	<div class="container" ng-controller="masterCtrl as master">
-		<h1>Hello, {{ master.info.name }}</h1>
-		<div class="date">{{ master.info.date | date:'MMMM dd, yyyy'}}</div>
-		<div class="time">{{ master.info.date | date:'H:mma'}}</div>
+	<div class="container-fluid" ng-controller="masterCtrl as master">
+		<h1 class="greeting row">Hello, {{ master.info.name }}</h1>
+		<div class="date row">
+			{{ master.info.date | date:'MMMM dd, yyyy'}}
+		</div>
+		<div class="time row">{{ master.info.date | date:'H:mma'}}</div>
 
 		<div class="toDoUI">
 			<input type="text" ng-model="master.toDos.task"/>
 		</div>
 
 
-	  <div class="container" ng-controller="weathCtrl as weath">
-		<h3>{{ weath.location.city }}</h3>
-		<div class="weather">
+	  <div class="container-fluid" ng-controller="weathCtrl as weath">
+		<h3 class="city row">{{ weath.location.city }}</h3>
+		<div class="weather row">
 			<img ng-src="http://icons.wxug.com/i/c/j/{{ weath.weathData.weather | lowercase | noSpace}}.gif">
 			<div class="cur-weath">
 				<p>{{weath.weathData.weather}}</p>

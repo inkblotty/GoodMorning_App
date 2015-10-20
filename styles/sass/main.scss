@@ -1,0 +1,19 @@
+$mainText: #121119;
+$lightBlue: #b4b3ff;
+$lightGreen: #c6d7ff;
+
+body{
+	background-color: #e8f1ff;
+	color: $mainText;
+	font-size: 1.1em;
+	font-family: 'Lato', sans-serif;
+	margin: 2% 5%;
+}
+
+.toDoList{
+	div{
+	  background-color: $lightBlue;
+	  padding: 5%;
+	  width: 12em;
+	}
+}
