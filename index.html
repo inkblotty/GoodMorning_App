@@ -6,7 +6,7 @@
 
 	<!-- Styles -->
 	<link rel="stylesheet" href="styles/css/sass/main.css">
-	<link rel="stylesheet" href="css/flexboxgrid.min.css" type="text/css">
+	<link rel="stylesheet" href="node_modules/flexboxgrid/css/flexboxgrid.min.css" type="text/css">
 
 	<!-- Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
@@ -25,29 +25,44 @@
 		<div class="date row">
 			{{ master.info.date | date:'MMMM dd, yyyy'}}
 		</div>
-		<div class="time row">{{ master.info.date | date:'H:mma'}}</div>
-
-		
-
-
-	  <div class="container-fluid" ng-controller="weathCtrl as weath">
-		<h3 class="city row">{{ weath.location.city }}</h3>
-		<div class="weather row">
-			<img ng-src="http://icons.wxug.com/i/c/j/{{ weath.weathData.weather | lowercase | noSpace}}.gif">
-			<div class="cur-weath">
-				<p>{{weath.weathData.weather}}</p>
-				<p>{{weath.weathData.temp_f}}&deg;</p>
-			</div>
+		<div class="time row">
+			{{ master.info.date | date:'h:mm a'}}
 		</div>
 
-		<div class="credit-logo">
-			<img ng-src='{{ weath.weathData.image.url }}'>
+	  <div class="row">
+	    <div ng-controller="weathCtrl as weath">
+		  <h3 class="city row">
+		  	<div class="col-xs">
+		  	  {{ weath.location.city }}
+		  	</div>
+		  </h3>
+		  <div class="row weather">
+			<div class="col-xs cur-weath">
+				<div class="row center-xs">
+				  <div class="col-xs">
+			        <img ng-src="http://icons.wxug.com/i/c/j/{{ weath.weathData.weather | lowercase | noSpace}}.gif">
+			      </div>
+			    </div>
+				<p>{{weath.weathData.weather}}</p>
+				<p>{{weath.weathData.temp_f}}&deg;</p>
+				<p>Humidity: {{weath.weathData.relative_humidity}}</p>
+				<div class="credit-logo row center-xs">
+			      <img class="col-xs" ng-src='{{ weath.weathData.image.url }}'>
+		        </div>
+			</div>
+		  </div>
 		</div>
 	  </div>
 
-	  <div class="toDoUI">
-			<input type="text" ng-model="master.toDos.task"/>
+	  <div class="container-fluid">
+	    <div class="row toDoUI">
+	    	<div class="col-xs">
+	    	  <h3>Enter new task</h3>
+			  <input type="text" ng-model="master.toDos.task"/><br>
+			  <button>Submit</button>
+			</div>
 		</div>
+	  </div>
 
 	  <div class="toDoList" ng-repeat="task in master.toDos">
 		<div>{{ master.toDos.task }}</div>

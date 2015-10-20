@@ -4,8 +4,27 @@ body {
   font-size: 1.1em;
   font-family: 'Lato', sans-serif;
   margin: 2% 5%; }
+  body input {
+    padding: 2%; }
+
+.weather {
+  background-color: #fff;
+  padding: 4% 3%; }
+
+.credit-logo img {
+  height: 3em;
+  width: auto; }
+
+.toDoUI {
+  background-color: #c6d7ff;
+  height: 100%;
+  padding: 3% 2%;
+  position: fixed;
+  right: 0;
+  top: 0; }
 
 .toDoList div {
   background-color: #b4b3ff;
-  padding: 5%;
-  width: 12em; }
+  margin: 1%;
+  padding: 1% 2%;
+  width: 10em; }
