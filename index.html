@@ -27,9 +27,7 @@
 		</div>
 		<div class="time row">{{ master.info.date | date:'H:mma'}}</div>
 
-		<div class="toDoUI">
-			<input type="text" ng-model="master.toDos.task"/>
-		</div>
+		
 
 
 	  <div class="container-fluid" ng-controller="weathCtrl as weath">
@@ -46,6 +44,10 @@
 			<img ng-src='{{ weath.weathData.image.url }}'>
 		</div>
 	  </div>
+
+	  <div class="toDoUI">
+			<input type="text" ng-model="master.toDos.task"/>
+		</div>
 
 	  <div class="toDoList" ng-repeat="task in master.toDos">
 		<div>{{ master.toDos.task }}</div>
