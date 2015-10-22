@@ -1,27 +1,48 @@
 $mainText: #121119;
-$lightBlue: #c6d7ff;
+$lightBlue: rgba(193,215,255,0.7);
+$transpBlue: rgba(193,215,255,0.2);
 $deeperBlue: #b4b3ff;
 
 body{
-	background-color: #e8f1ff;
+	background-image: url(../../images/fall.jpg);
+	background-color: transparent;
+	background-repeat: no-repeat;
 	color: $mainText;
 	font-size: 1.1em;
 	font-family: 'Lato', sans-serif;
-	margin: 2% 5%;
+	margin: 0 auto;
 
 	input{
 	  padding: 2%;
 	}
 }
 
+.data-box{
+	margin-top: 2%;
+	padding: 2%;
+}
+
+.greeting{
+	background-color: $transpBlue;
+	padding: 2% 4%;
+	width: 70%;
+}
+
+.city-time{
+	background-color: $transpBlue;
+	padding: 3% 5%;
+	width: 100%;
+}
+
 .weather{
-	background-color: #fff;
+	background-color: $transpBlue;
 	padding: 4% 3%;
+	width: 100%;
 }
 
 .credit-logo{
     img{
-	  height: 3em;
+      height: 3em;
 	  width: auto;
 	}
 }

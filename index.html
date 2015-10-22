@@ -15,27 +15,26 @@
 	<script src="node_modules/angular/angular.js"></script>
 	<script src="js/moment.min.js"></script>
 	<script src="node_modules/angular-moment/angular-moment.js"></script>
-	
 
 </head>
 <body ng-app="dashApp">
 	
 	<div class="container-fluid" ng-controller="masterCtrl as master">
-		<h1 class="greeting row">Hello, {{ master.info.name }}</h1>
-		<div class="date row">
-			{{ master.info.date | date:'MMMM dd, yyyy'}}
-		</div>
-		<div class="time row">
-			{{ master.info.date | date:'h:mm a'}}
-		</div>
+		<h1 class="greeting row center-xs">Hello, {{ master.info.name }}</h1>
 
-	  <div class="row">
-	    <div ng-controller="weathCtrl as weath">
-		  <h3 class="city row">
-		  	<div class="col-xs">
+	  <div class="row data-box">
+	    <div class="container-fluid" ng-controller="weathCtrl as weath">
+	      <div class="city-time row center-xs">
+		  	<div class="city col-xs">
 		  	  {{ weath.location.city }}
 		  	</div>
-		  </h3>
+		    <div class="date col-xs">
+			  {{ master.info.date | date:'MMMM dd, yyyy'}}
+		    </div>
+		    <div class="time col-xs">
+			  {{ master.info.date | date:'h:mm a'}}
+		    </div>
+		  </div>
 		  <div class="row weather">
 			<div class="col-xs cur-weath">
 				<div class="row center-xs">
@@ -43,11 +42,11 @@
 			        <img ng-src="http://icons.wxug.com/i/c/j/{{ weath.weathData.weather | lowercase | noSpace}}.gif">
 			      </div>
 			    </div>
-				<p>{{weath.weathData.weather}}</p>
-				<p>{{weath.weathData.temp_f}}&deg;</p>
-				<p>Humidity: {{weath.weathData.relative_humidity}}</p>
+				<p class="row center-xs">{{weath.weathData.weather}}</p>
+				<p class="row center-xs">{{weath.weathData.temp_f}}&deg;F</p>
+				<p class="row center-xs">Humidity: {{weath.weathData.relative_humidity}}</p>
 				<div class="credit-logo row center-xs">
-			      <img class="col-xs" ng-src='{{ weath.weathData.image.url }}'>
+			      <img ng-src='{{ weath.weathData.image.url }}'>
 		        </div>
 			</div>
 		  </div>
@@ -82,6 +81,7 @@
 	<script src="js/controllers/weathCtrl.js"></script>
 
 	<!-- Directives -->
+	<script src="js/directives/parseStyle.js"></script>
 
 	<!-- Custom Filters -->
 	<script src="js/noSpaceFilter.js"></script>
