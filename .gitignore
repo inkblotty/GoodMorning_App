@@ -1,3 +1,4 @@
 *.gulpfile
+*.db
 weathService.js
 node_modules

@@ -11,6 +11,7 @@ var autoprefix = require('gulp-autoprefixer'), // automatically adds vender pref
 	jshint = require('gulp-jshint'),
 	minifyCSS = require('gulp-minify-css'),
 	minifyHTML = require('gulp-minify-html'),
+	ngAnnotate = require('gulp-ng-annotate'), // helps with proper minification of angular
 	sass = require('gulp-sass'),
 	stripDebug = require('gulp-strip-debug'), // removes console and debug statements
 	uglify = require('gulp-uglify');
@@ -24,8 +25,8 @@ gulp.task('jshint', function() {
 
 // minify new images
 gulp.task('imagemin', function() {
-	var imgSrc = './src/images/**/*',
-		imgDst = './build/images';
+	var imgSrc = './src/styles/images/**/*',
+		imgDst = './build/styles/images';
 
 	gulp.src(imgSrc)
 		.pipe(changed(imgDst))
@@ -45,8 +46,14 @@ gulp.task('htmlpage', function() {
 });
 
 // JS concat, strip debugging, and minify
+// when concatenating angular files, make sure they are processed in order: 
+// first angular library, then module, then servies, then controllers, etc.
+
 gulp.task('scripts', function() {
-	gulp.src(['./src/scripts/lib.js', '.src/scripts/*.js']) /* library scripts */
+	gulp.src(['./src/scripts/libraries/angular.min.js', './src/scripts/libraries/*.js'])
+		.pipe(gulp.dest('./build/scripts/libraries/'));
+	gulp.src(['./src/scripts/app.js', './src/scripts/services/*.js', './src/scripts/controllers/*.js', './src/scripts/directives/*.js', './src/scripts/filters/*.js', '.src/scripts/*.js']) /* library scripts */
+		.pipe(ngAnnotate())
 		.pipe(concat('script.js'))
 		.pipe(stripDebug())
 		.pipe(uglify())
