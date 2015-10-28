@@ -20,6 +20,10 @@ body{
 	}
 }
 
+.body-content{
+	flex-wrap: nowrap;
+}
+
 .data-box{
 	align-self: flex-start;
 	background-color: $transpBlue;
@@ -71,10 +75,11 @@ body{
 .toDoList{
 	align-self: flex-end;
 
-	div{
+	.post-it{
 	  background-color: $deeperBlue;
 	  margin: 1%;
-	  padding: 1% 2%;
+	  height: 10em;
+	  padding: 2% 3%;
 	  width: 10em;
 	}
 }

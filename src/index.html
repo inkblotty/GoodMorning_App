@@ -21,7 +21,7 @@
 	<div class="flex-container-wrap" ng-controller="masterCtrl as master">
 	  <h1 class="flex-row greeting">Hello, {{ master.info.name }}</h1>
 
-	  <div class="flex-row">
+	  <div class="flex-row body-content">
 	    <div class="flex-container-col data-box" ng-controller="weathCtrl as weath">
 	      <div class="flex-row city">
 		  	  {{ weath.location.city }}
@@ -54,7 +54,7 @@
 		</div>
 
 		<div class="flex-container-col toDoList" ng-repeat="task in master.toDos track by $index">
-		  <div>{{ task.name }}</div>
+		  <div class="post-it">{{ task.name }}</div>
 	  	</div>
 	  </div>
 
@@ -62,7 +62,7 @@
 	    <div class="toDoUI">
 	    	<div class="">
 	    	  <h3>Enter new task</h3>
-			  <input type="text" name="add-task" class="add-task" ng-model="taskName" ng-keyup="master.addTask()"/>
+			  <input type="text" name="add-task" class="add-task" ng-model="master.taskName" ng-keyup="master.addTask($event)"/>
 			</div>
 		</div>
 	  </div>

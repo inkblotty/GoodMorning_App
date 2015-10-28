@@ -29,15 +29,14 @@ app.controller('masterCtrl', ["$scope", function($scope) {
 	imgPick = images[index];
 */
 	master.toDos = [
-		{"name": "To Do #1"}
+		{"name": "To Do #1", "isDone": false}
 	];
 
 	master.addTask = function(event) {
-		if(event.keyCode == 13 && master.taskName) {
-			console.log('addTask is running');
-			master.toDos.push({'name': master.taskName});
+		if(event.keyCode === 13) {
+			master.toDos.push({'name': master.taskName, "isDone": false});
 			master.taskName = "";
-		}
+		};
 	};
 
 	master.deleteTask = function() {

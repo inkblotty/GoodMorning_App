@@ -15,16 +15,12 @@ app.controller('masterCtrl', function($scope) {
 	imgPick = images[index];
 */
 	master.toDos = [
-		{"name": "To Do #1"}
+		{"name": "To Do #1", "isDone": false}
 	];
 
-	console.log('controller is loaded');
-
-	master.addTask = function($scope, element, attr) {
-		alert('addTask called with key: ' + event.keyCode+ " and taskName: " + master.taskName);
-		if(event.keyCode == 13 && master.taskName) {
-			console.log('addTask is running');
-			master.toDos.push({'name': master.taskName});
+	master.addTask = function(event) {
+		if(event.keyCode === 13) {
+			master.toDos.push({'name': master.taskName, "isDone": false});
 			master.taskName = "";
 		};
 	};
