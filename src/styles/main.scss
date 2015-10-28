@@ -1,3 +1,5 @@
+@import 'extensions';
+
 $mainText: #121119;
 $lightBlue: rgba(193,215,255,0.7);
 $transpBlue: rgba(193,215,255,0.2);
@@ -19,24 +21,33 @@ body{
 }
 
 .data-box{
+	align-self: flex-start;
+	background-color: $transpBlue;
 	margin-top: 2%;
 	padding: 2%;
+
+	.city{
+		font-size: 1.2em;
+		margin-bottom: 5%;
+	}
+
+	.flex-row{
+		margin: 5% 2%;
+	}
+
+	.flex-col{
+		margin: 1% 3%;
+	}
 }
 
 .greeting{
 	background-color: $transpBlue;
 	padding: 2% 4%;
-	width: 70%;
-}
-
-.city-time{
-	background-color: $transpBlue;
-	padding: 3% 5%;
-	width: 100%;
+	text-align: center;
+	width: 80%;
 }
 
 .weather{
-	background-color: $transpBlue;
 	padding: 4% 3%;
 	width: 100%;
 }
@@ -58,6 +69,8 @@ body{
 }
 
 .toDoList{
+	align-self: flex-end;
+
 	div{
 	  background-color: $deeperBlue;
 	  margin: 1%;

@@ -5,6 +5,7 @@ var gulp = require('gulp');
 
 // include plug-ins
 var autoprefix = require('gulp-autoprefixer'), // automatically adds vender prefixes
+	//browserSync = require('browser-sync').create(),
 	changed = require('gulp-changed'), // checks to see what needs updating -- only the changed files
 	concat = require('gulp-concat'),
 	imagemin = require('gulp-imagemin'),
@@ -15,6 +16,16 @@ var autoprefix = require('gulp-autoprefixer'), // automatically adds vender pref
 	sass = require('gulp-sass'),
 	stripDebug = require('gulp-strip-debug'), // removes console and debug statements
 	uglify = require('gulp-uglify');
+
+// static server
+/*gulp.task('browser-sync', function() {
+	browserSync.init({
+		server: {
+			baseDir: "./"
+		}
+	});
+});
+*/
 
 // JS hint task
 gulp.task('jshint', function() {
@@ -55,8 +66,8 @@ gulp.task('scripts', function() {
 	gulp.src(['./src/scripts/app.js', './src/scripts/services/*.js', './src/scripts/controllers/*.js', './src/scripts/directives/*.js', './src/scripts/filters/*.js', '.src/scripts/*.js']) /* library scripts */
 		.pipe(ngAnnotate())
 		.pipe(concat('script.js'))
-		.pipe(stripDebug())
-		.pipe(uglify())
+		//.pipe(stripDebug())
+		//.pipe(uglify())
 		.pipe(gulp.dest('./build/scripts/'));
 });
 
