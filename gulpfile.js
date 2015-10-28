@@ -28,11 +28,13 @@ var autoprefix = require('gulp-autoprefixer'), // automatically adds vender pref
 */
 
 // JS hint task
+/*
 gulp.task('jshint', function() {
 	gulp.src('./src/scripts/*.js')
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'));
 });
+*/
 
 // minify new images
 gulp.task('imagemin', function() {
@@ -66,8 +68,8 @@ gulp.task('scripts', function() {
 	gulp.src(['./src/scripts/app.js', './src/scripts/services/*.js', './src/scripts/controllers/*.js', './src/scripts/directives/*.js', './src/scripts/filters/*.js', '.src/scripts/*.js']) /* library scripts */
 		.pipe(ngAnnotate())
 		.pipe(concat('script.js'))
-		//.pipe(stripDebug())
-		//.pipe(uglify())
+		.pipe(stripDebug())
+		.pipe(uglify())
 		.pipe(gulp.dest('./build/scripts/'));
 });
 
@@ -90,7 +92,8 @@ gulp.task('default', ['imagemin', 'htmlpage', 'scripts', 'styles'], function() {
 
 	// watch for JS changes
 	gulp.watch('./src/scripts/*.js', function() {
-		gulp.run('jshint', 'scripts');
+		//gulp.run('jshint', 'scripts');
+		gulp.run('scripts');
 	});
 
 	// watch for CSS changes

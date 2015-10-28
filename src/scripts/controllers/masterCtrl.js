@@ -19,13 +19,13 @@ app.controller('masterCtrl', function($scope) {
 	];
 
 	master.addTask = function(event) {
-		if(event.keyCode === 13) {
+		if(event.keyCode === 13 && master.taskName) {
 			master.toDos.push({'name': master.taskName, "isDone": false});
 			master.taskName = "";
 		};
 	};
 
-	master.deleteTask = function() {
+	master.completeTask = function() {
 
 	};
 });

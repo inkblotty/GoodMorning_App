@@ -2,7 +2,7 @@
 
 $mainText: #121119;
 $lightBlue: rgba(193,215,255,0.7);
-$transpBlue: rgba(193,215,255,0.2);
+$transpBlue: rgba(193,215,255,0.3);
 $deeperBlue: #b4b3ff;
 
 body{
@@ -20,13 +20,15 @@ body{
 	}
 }
 
-.body-content{
+.body-content{ 
+	align-self: flex-start;
+	border: 1px solid blue;
 	flex-wrap: nowrap;
 }
 
-.data-box{
-	align-self: flex-start;
+.data-box{ border: 1px solid green;
 	background-color: $transpBlue;
+	flex: 1 0 0;
 	margin-top: 2%;
 	padding: 2%;
 
@@ -72,14 +74,18 @@ body{
 	top: 0;
 }
 
-.toDoList{
-	align-self: flex-end;
+.toDoList{ border: 1px solid green;
+	flex: 2 0 0;
 
 	.post-it{
 	  background-color: $deeperBlue;
 	  margin: 1%;
-	  height: 10em;
+	  height: 8em;
 	  padding: 2% 3%;
 	  width: 10em;
+
+	  span{
+	  	margin: 2% 3%;
+	  }
 	}
 }
